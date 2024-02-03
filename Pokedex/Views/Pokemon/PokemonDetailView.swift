@@ -131,7 +131,7 @@ struct PokemonDetailView: View {
                     PokemonDetailSection(title: Strings.Detail.stats, data: pokemon.stats) {
                         PokemonStatsView(stat: $0)
                     }
-                    
+
                     PokemonDetailSection(title: Strings.Detail.types, data: pokemon.types) {
                         SmallTextBackgroundView(text: $0.type.name)
                     }
