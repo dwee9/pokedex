@@ -25,10 +25,9 @@ struct PokemonListItemView: View {
                 .if(animation != nil) { view in
                         view
                         .matchedGeometryEffect(id: "image-\(pokemon.id)", in: animation!)
-                        .transition(.scale(scale: 1.0))
                 }
                 .frame(width: 75.0, height: 75.0)
-            
+
             Spacer()
             
             Text(pokemon.name)
@@ -41,9 +40,7 @@ struct PokemonListItemView: View {
                                 heroFontLarge = false
                             }
                         }
-                        .transition(.scale(scale: 1))
                 }
-
         }
         .padding()
         .modifier(CardBackground(color: backgroundColor, geometryID: "bg-\(pokemon.id)", namespaceID: animation))

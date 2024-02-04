@@ -35,11 +35,10 @@ struct PokemonListView: View {
                                 GridItem(.flexible(), spacing: 15.0)
                             ], spacing: 25.0) {
                                 ForEach(viewModel.filteredPokemon(), id: \.id) { pokemon in
-
                                     if selectedPokemon?.id == pokemon.id, isPresented {
                                         Color.clear
                                     } else {
-                                        PokemonListItemView(pokemon: pokemon, animation: animation,backgroundColor: Color(uiColor: .secondarySystemBackground))
+                                        PokemonListItemView(pokemon: pokemon, animation: animation, backgroundColor: Color(uiColor: .secondarySystemBackground))
                                             .onTapGesture {
                                                 guard selectedPokemon == nil else { return }
                                                 withAnimation {

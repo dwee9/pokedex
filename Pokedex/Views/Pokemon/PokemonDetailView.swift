@@ -41,10 +41,10 @@ struct PokemonDetailView: View {
                            )
 
                         sections
+                        .animation(.easeInOut, value: viewModel.isLoading)
+                        .animation(.easeInOut, value: showDetails)
+                        .animation(.easeInOut, value: viewModel.pokemon)
                 }
-                .animation(.easeInOut, value: viewModel.isLoading)
-                .animation(.easeInOut, value: showDetails)
-                .animation(.easeInOut, value: viewModel.pokemon)
             }
             .coordinateSpace(name: "frameLayer")
             .onPreferenceChange(OffsetPreferenceKey.self, perform: { value in
@@ -75,19 +75,16 @@ struct PokemonDetailView: View {
             .indicator(.activity)
             .scaledToFit()
             .matchedGeometryEffect(id: "image-\(viewModel.pokemonId)", in: animation)
-            .transition(.scale(scale: 1.0))
             .frame(maxHeight: 200)
 
         Text(viewModel.pokemonName)
             .animatableFont(name: "San Francisco", size: heroFontLarge ? 32.0: 16)
             .matchedGeometryEffect(id: "name-\(viewModel.pokemonId)", in: animation)
-            .minimumScaleFactor(0.1)
             .onAppear {
                 withAnimation {
                     heroFontLarge = true
                 }
             }
-            .transition(.scale(scale: 1))
     }
 
     // MARK: - Sections
